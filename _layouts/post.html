@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="post">
+  <div class="post-info">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.date %}
+      <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      <br>
+      <br>
+    {% endif %}
+  </div>
+
+  <hr/>
+
+  {{ content }}
+</div>
+
+<div class="pagination">
+  {% if page.previous.url %}
+    <a href="{{ page.previous.url | prepend: site.baseurl }}" class="left arrow">previous post</a>
+  {% endif %}
+
+  {% if page.next.url %}
+    <a href="{{ page.next.url | prepend: site.baseurl }}" class="right arrow">next post</a>
+  {% endif %}
+</div>
